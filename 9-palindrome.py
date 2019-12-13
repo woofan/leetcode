@@ -8,4 +8,4 @@ def isalindrome(x):
             break
     return flag
 
-print(isalindrome(-1231))
+print(isalindrome(12321))
