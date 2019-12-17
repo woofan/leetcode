@@ -1,25 +1,30 @@
 def generateParenthesis(n):
+    result = []
     if n == 0:
-        return []
-    s = '()'
+        return result
+    s = ['()']
     for i in range(n-1):
         s = func1(s)
     return s
 
 
-def func1(s):
-    res = set()
-    l  = len(s)
-    for i in range(l+1):
-        for j in range(1,l+2):
-            tmp = s[:i] + '(' + s[i:]
-            tmp = tmp[:j]+')'+tmp[j:]
-            res.add(tmp)
-    return filter(res)
+def func1(mylist):
+    result = set()
+    for s in mylist:
+        res = set()
+        l  = len(s)
+        for i in range(l+1):
+            for j in range(1,l+2):
+                tmp = s[:i] + '(' + s[i:]
+                tmp = tmp[:j]+')'+tmp[j:]
+                res.add(tmp)
+        for x in filter(res):
+            result.add(x)
+    return result
 
 def filter(l):
     l = list(l)
-    tmp = l
+    tmp = l.copy()
     for i in l:
         flag_left = 0
         flag_right = 0
