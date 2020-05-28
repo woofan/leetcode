@@ -1,23 +1,14 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+import copy
+def gameOfLife(self, board: List[List[int]]) -> None:
+    """
+    Do not return anything, modify board in-place instead.
+    """
+    temp = copy.deepcopy(board)
+    for i in temp:
+        i.append(0)
+        i.insert(0,0)
+    pass
 
-class Solution:
-    def maxDepth(self, root: TreeNode) -> int:
-        if not root:
-            return 0
-        q = []
-        result = []
-        q.append(root)
-        while len(q)>0:
-            for i in range(len(q)):
-                node = q.pop(0)
-                if node.left:
-                    q.append(node.left)
-                if node.right:
-                    q.append(node.right)
-            result.append(1)
-        return len(result)
+a = [1,2,3]
+a.insert(0,0)
+print(a)
