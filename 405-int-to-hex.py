@@ -35,6 +35,9 @@ def toHex(num):
         for i in range(len(binary)//4):
             temp = f'{binary[i*4]}{binary[i*4+1]}{binary[i*4+2]}{binary[i*4+3]}'
             res = f'{res}{BtoH[temp]}'
+    if len(res)>1:
+        for i in range(len(res)-1):
+            res = res.lstrip('0')
     return res
 
 
@@ -44,6 +47,8 @@ def toBinary(num):
         s = f'{num%2}{s}'
         num = num // 2
     s = f'{num}{s}'
+    for i in range(32-len(s)):
+        s = f'{0}{s}'
     return s
 
-print(toHex(-1))
+print(toHex(26))
