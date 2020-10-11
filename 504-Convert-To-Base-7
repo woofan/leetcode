@@ -1,0 +1,13 @@
+class Solution:
+    def convertToBase7(self, num: int) -> str:
+        res = ''
+        mynum = abs(num)
+        temp = 0
+        while mynum >= 7:
+            temp = mynum % 7
+            mynum = mynum // 7
+            res = str(temp) + res
+        res = str(mynum) + res
+        if num < 0:
+            res = '-' + res
+        return res
